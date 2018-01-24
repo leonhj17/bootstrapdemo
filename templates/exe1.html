@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static "css/exe1.css" %}" >
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}" >
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row" style="border-bottom: 2px solid grey">
+        <div style="float: left;line-height: 50px;padding-left: 0px">
+            <img src="{% static "images/exe1/1.png" %}">最新动态</div>
+        <div style="float: right;line-height: 50px;padding-right: 0px">
+            <img src="{% static "images/exe1/2.png" %}">设置</div>
+    </div>
+
+    <div class="row" style="border-bottom: 2px solid grey;padding-bottom: 30px">
+        <div class="col-md-2 col-sm-2 col-xs-2">
+            <div style="margin: 20px 20px 10px -15px"><img src="{% static "images/exe1/4.png" %}"></div>
+            <span style="margin-left: -15px;background-color: darkseagreen">6551</span>
+        </div>
+        <div class="col-md-10 col-sm-10 col-xs-10">
+
+            <div style="margin-top: 20px;">
+                <p style="margin-bottom: auto">热门回答，来自 机械 <a href="#" style="color: cornflowerblue">关注话题</a></p>
+            </div>
+            <p style="color: blue;font-weight: bold">人类史上令人叹为观止的极限精度制造成果有哪些?</p>
+            <p style="font-weight: bold">Vincent Fu, Materials Science, PhD</p>
+
+            <div class="row">
+                <img src="{% static "images/exe1/6.png" %}" style="float: left; margin-right: 10px">
+                 <p>Monitoring and testing for regression of large-scale systems such as the NCSA's Blue Waters
+                     supercomputer are challenging tasks. In this paper, we describe the solution we came up with
+                     to perform those tasks. Our goal was to find an automated solution for running user-level regression
+                     tests to evaluate system...<a href="#" style="color: cornflowerblue">显示全部</a> </p>
+            </div>
+
+            <div class="row" style="margin-top: 20px">
+                <div style="color: lightgrey;float: left;margin-right: 5px">
+                    <img src="{% static "images/exe1/7.png" %}">关注问题</div>
+                <div style="color: lightgrey;float: left;margin-right: 5px">
+                    <img src="{% static "images/exe1/8.png" %}">867条评论</div>
+                <div style="color: lightgrey;float: left;margin-right: 5px">
+                    <img src="{% static "images/exe1/9.png" %}">作者保留权利</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <script src="{% static "js/jquery.min.js" %}"></script>
+</body>
+</html>
