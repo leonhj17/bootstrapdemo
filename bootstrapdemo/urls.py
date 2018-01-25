@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^index/', TemplateView.as_view(template_name="index.html")),
     url(r'^exe1/', TemplateView.as_view(template_name="exe1.html")),
+    url(r'^exe2/', TemplateView.as_view(template_name="exe2.html")),
 ]
