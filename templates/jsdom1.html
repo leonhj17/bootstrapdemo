@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <h3>Snapshots</h3>
+
+    <ul style="float: left;" id="piclist">
+        <li><a href="{% static "images/g1.jpg" %}" id="pic1" onclick="showPic(this);return false">picture1</a></li>
+        <li><a href="{% static "images/g2.jpg" %}" id="pic2" onclick="showPic(this);return false">picture2</a></li>
+        <li><a href="{% static "images/g3.jpg" %}" id="pic3" onclick="showPic(this);return false">picture3</a></li>
+        <li><a href="{% static "images/g4.jpg" %}" id="pic4" onclick="showPic(this);return false">picture4</a></li>
+    </ul>
+
+    <div style="float: right">
+        <img src="{% static "images/g1.jpg" %}" id="placeholder" >
+        <p style="text-align: center;" id="pictext">图片1</p>
+    </div>
+
+    <script src="{% static "js/jsdom1.js" %}"></script>
+    <script>
+       /* var p = document.getElementById("pelement");
+        alert(p.getAttribute("class"));
+        p.setAttribute("class","classp");
+        alert(p.getAttribute("class")); */
+       //pic = document.getElementById("pic2");
+       //showPic(pic);
+    </script>
+</body>
+</html>
