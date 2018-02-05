@@ -20,18 +20,29 @@
 </head>
 <body>
     <h3>Snapshots</h3>
-
-    <ul style="" id="piclist">
-        <li><a href="{% static "images/g1.jpg" %}" id="pic1" onclick="showPic(this);return false">picture1</a></li>
-        <li><a href="{% static "images/g2.jpg" %}" id="pic2" onclick="showPic(this);return false">picture2</a></li>
-        <li><a href="{% static "images/g3.jpg" %}" id="pic3" onclick="showPic(this);return false">picture3</a></li>
-        <li><a href="{% static "images/g4.jpg" %}" id="pic4" onclick="showPic(this);return false">picture4</a></li>
-    </ul>
+    <div>
+        <ul style="" id="piclist">
+          <!--  <li><a href="{% static "images/g1.jpg" %}" id="pic1" onclick="showPic(this);return false">picture1</a></li>
+            <li><a href="{% static "images/g2.jpg" %}" id="pic2" onclick="showPic(this);return false">picture2</a></li>
+            <li><a href="{% static "images/g3.jpg" %}" id="pic3" onclick="showPic(this);return false">picture3</a></li>
+            <li><a href="{% static "images/g4.jpg" %}" id="pic4" onclick="showPic(this);return false">picture4</a></li>
+            -->
+            <li><a href="{% static "images/g1.jpg" %}" id="pic1" class="showpic">picture1</a></li>
+            <li><a href="{% static "images/g2.jpg" %}" id="pic2" class="showpic">picture2</a></li>
+            <li><a href="{% static "images/g3.jpg" %}" id="pic3" class="showpic">picture3</a></li>
+            <li><a href="{% static "images/g4.jpg" %}" id="pic4" class="showpic">picture4</a></li>
+        </ul>
+    </div>
 
     <div style="float: left;">
         <img src="{% static "images/g1.jpg" %}" id="placeholder" >
         <p style="text-align: center;" id="pictext">Choose an image</p>
+        <div style="text-align: center;">
+            <!--<a href="#" onclick="popUp('');return false">example</a></div> -->
+            <a href="#" class="popup">example</a></div>
     </div>
+
+
 
 
     <script>
