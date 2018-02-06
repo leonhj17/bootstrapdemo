@@ -39,7 +39,35 @@ function preparelinks() {
             links[i].onclick = function () {
                 showPic(this);
                 return false;
-            }
+                //return showPic(this);
+            };
+            links[i].onKeyPress = links.onclick;
         }
     }
+}
+
+//页面加载完成后，执行函数
+function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != func) {
+        window.onload = func;
+    }else {
+        window.onload = function () {
+            oldonload();
+            func();
+        }
+    }
+}
+
+//增加条件判断
+function showPic(whichpic) {
+    if (!document.getElementById("placeholder")) return true;
+    var source = whichpic.getAttribute("href");
+    var placeholder = document.getElementById("placeholder");
+    placeholder.setAttribute("src", source);
+    if (!document.getElementById("description")) return false;
+    var text = whichpic.getAttribute("id");
+    var description = document.getElementById("description");
+    description.firstChild.nodeValue = text;
+    return false
 }
