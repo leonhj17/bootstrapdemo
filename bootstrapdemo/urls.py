@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^exe1/', TemplateView.as_view(template_name="exe1.html")),
     url(r'^exe2/', TemplateView.as_view(template_name="exe2.html")),
     url(r'^jsdom1/', TemplateView.as_view(template_name="jsdom1.html")),
+    url(r'^jsdom7/', TemplateView.as_view(template_name="jsdom7.html")),
 ]
