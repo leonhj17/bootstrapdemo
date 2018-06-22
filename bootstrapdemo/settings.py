@@ -25,8 +25,8 @@ SECRET_KEY = 'de!s#i8u7ivfhigab9_i!ivzqqj1n053wb$8#c$sh1n0g%ta9v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -124,3 +124,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+# email setting
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = '1027467254@qq.com'
+EMAIL_HOST_PASSWORD = 'jhafhjxzhgawbeeh'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
