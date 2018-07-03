@@ -1,10 +1,12 @@
 # _*_ encoding: utf-8 _*_
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.mail import send_mail
+from django.urls import reverse
 
-from .forms import NameForm, ContactForm, ContactFormWithMugshot
+from .forms import NameForm, ContactForm, ContactFormWithMugshot, UploadFileForm
 from bootstrapdemo.settings import EMAIL_HOST_USER
+from .models import UploadFileModel
 # Create your views here.
 
 
@@ -50,3 +52,24 @@ def send_email(request):
 
         form_file = ContactFormWithMugshot()
         return render(request, 'form_test1.html', {'form': form, 'formfile': form_file})
+
+
+def upload(request):
+    if request.method == 'POST':
+        form = UploadFileForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            # return HttpResponse('upload successful')
+            # uploadfile = UploadFileModel.objects.all()
+            # return render(request, 'uploadform.html', {'upload': uploadfile})
+            return HttpResponseRedirect(reverse('formtest:filelist'))
+    else:
+
+        form = UploadFileForm()
+        return render(request, 'uploadform.html', {'form': form})
+
+
+def filelist(request):
+    uploadfile = UploadFileModel.objects.all()
+    return render(request, 'filelist.html', {'upload': uploadfile})

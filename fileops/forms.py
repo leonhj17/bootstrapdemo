@@ -40,5 +40,6 @@ class ContactFormWithMugshot(ContactForm):
 class UploadFileForm(forms.ModelForm):
     class Meta:
         model = UploadFileModel
+        fields = ['title', 'file']
 
 

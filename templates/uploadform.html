@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>file upload</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="上传">
+    </form>
+
+</body>
+</html>

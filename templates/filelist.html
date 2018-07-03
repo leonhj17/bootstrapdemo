@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for file in upload %}
+        <li>{{ file.title }}{{ file.file.url }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
