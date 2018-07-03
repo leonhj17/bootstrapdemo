@@ -3,7 +3,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.mail import send_mail
 
-from .forms import NameForm, ContactForm
+from .forms import NameForm, ContactForm, ContactFormWithMugshot
+from bootstrapdemo.settings import EMAIL_HOST_USER
 # Create your views here.
 
 
@@ -31,15 +32,21 @@ def send_email(request):
             recipients = ['huangjian17@outlook.com']
             if cc_myself:
                 recipients.append(sender)
+        # else:
+        #     return render(request, 'form_test1.html', {'form': form})
 
             # send_mail(subject, message, sender, recipients)
             # return HttpResponse('send mail successfully')
         try:
-            # 如何send mail如何设置暂且搁置？
+            # 如何send mail如何设置暂且搁置？try可能掩盖函数本身使用方法的错误 2018.6.22
             send_mail(subject, message, sender, recipients)
             return HttpResponse('send mail successfully')
         except:
             return HttpResponse('send failed')
     else:
-        form = ContactForm()
-        return render(request, 'form_test1.html', {'form': form})
+        form = ContactForm(initial={'subject': 'initial information'}, label_suffix='-->',
+                           field_order=['sender', 'subject', 'message', 'cc_myself']
+                           )
+
+        form_file = ContactFormWithMugshot()
+        return render(request, 'form_test1.html', {'form': form, 'formfile': form_file})

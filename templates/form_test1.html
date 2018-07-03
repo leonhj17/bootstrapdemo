@@ -7,9 +7,54 @@
 </head>
 <body>
     <form method="post">
-        {% csrf_token %}
-        {{ form }}
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
         <input type="submit" value="upload">
     </form>
+{#<form method="post">#}
+{#    {% csrf_token %}#}
+{#    {{ form.non_field_errors }}#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.subject.errors }}#}
+{#        <label for="{{ form.subject.id_for_label }}">Email subject:</label>#}
+{#        {{ form.subject }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.message.errors }}#}
+{#        <label for="{{ form.message.id_for_label }}">Your message:</label>#}
+{#        {{ form.message }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.sender.errors }}#}
+{#        <label for="{{ form.sender.id_for_label }}">Your email address:</label>#}
+{#        {{ form.sender }}#}
+{#    </div>#}
+{#    <div class="fieldWrapper">#}
+{#        {{ form.cc_myself.errors }}#}
+{#        <label for="{{ form.cc_myself.id_for_label }}">CC yourself?</label>#}
+{#        {{ form.cc_myself }}#}
+{#    </div>#}
+{#    <input type="submit" value="提交">#}
+{#</form>#}
+
+{#<table>#}
+{#    <tr><th><label for="id_subject">Subject:</label></th><td><ul class="errorlist"><li>This field is required.</li></ul><input id="id_subject" maxlength="100" name="subject" type="text" required /></td></tr>#}
+{#    <tr><th><label for="id_message">Message:</label></th><td><textarea cols="40" id="id_message" name="message" rows="10" required>#}
+{#    hi there</textarea></td></tr>#}
+{#    <tr><th><label for="id_sender">Sender:</label></th><td><ul class="errorlist"><li>Enter a valid email address.</li></ul><input id="id_sender" name="sender" type="email" value="invalid email address" required /></td></tr>#}
+{#    <tr><th><label for="id_cc_myself">Cc myself:</label></th><td><input checked="checked" id="id_cc_myself" name="cc_myself" type="checkbox" /></td></tr>#}
+{#</table>#}
+
+<form enctype="multipart/form-data" method="post">
+    <table>
+        {% csrf_token %}
+        {{ formfile.as_table }}
+    </table>
+    <input type="submit" value="upload">
+</form>
+
+
 </body>
 </html>
