@@ -13,10 +13,14 @@ class NameForm(forms.Form):
 class ContactForm(forms.Form):
     error_css_class = 'error'
     required_css_class = 'required'
-    subject = forms.CharField(max_length=100, help_text='输入主题')
-    message = forms.CharField(widget=forms.Textarea)  # widget用以声明charfield类型
-    sender = forms.EmailField()
-    cc_myself = forms.BooleanField(required=False)
+    subject = forms.CharField(max_length=100, help_text='输入主题', widget=forms.TextInput(
+        attrs={'class': 'form-control'}
+    ))
+    message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'})
+    )  # widget用以声明charfield类型
+    sender = forms.EmailField(widget=forms.TextInput(
+        attrs={'class': 'form-control'}))
+    cc_myself = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}))
 
 
 # 修改表单错误信息显示方式

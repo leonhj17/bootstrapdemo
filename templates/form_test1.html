@@ -4,40 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="{% static "css/bootstrap.css" %}" rel='stylesheet' type='text/css' />
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static "js/jquery.min.js" %}"></script>
+		 <!-- Custom Theme files -->
+    <link href="{% static "css/theme-style.css" %}" rel='stylesheet' type='text/css' />
 </head>
 <body>
-    <form method="post">
-        <table>
-            {% csrf_token %}
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="upload">
-    </form>
-{#<form method="post">#}
-{#    {% csrf_token %}#}
-{#    {{ form.non_field_errors }}#}
-{#    <div class="fieldWrapper">#}
-{#        {{ form.subject.errors }}#}
-{#        <label for="{{ form.subject.id_for_label }}">Email subject:</label>#}
-{#        {{ form.subject }}#}
-{#    </div>#}
-{#    <div class="fieldWrapper">#}
-{#        {{ form.message.errors }}#}
-{#        <label for="{{ form.message.id_for_label }}">Your message:</label>#}
-{#        {{ form.message }}#}
-{#    </div>#}
-{#    <div class="fieldWrapper">#}
-{#        {{ form.sender.errors }}#}
-{#        <label for="{{ form.sender.id_for_label }}">Your email address:</label>#}
-{#        {{ form.sender }}#}
-{#    </div>#}
-{#    <div class="fieldWrapper">#}
-{#        {{ form.cc_myself.errors }}#}
-{#        <label for="{{ form.cc_myself.id_for_label }}">CC yourself?</label>#}
-{#        {{ form.cc_myself }}#}
-{#    </div>#}
-{#    <input type="submit" value="提交">#}
-{#</form>#}
+{#    <form method="post">#}
+{#        <table>#}
+{#            {% csrf_token %}#}
+{#            {{ form.as_table }}#}
+{#        </table>#}
+{#        <input type="submit" value="upload">#}
+{#    </form>#}
+<form method="post">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+        {{ form.subject.errors }}
+        <label for="{{ form.subject.id_for_label }}">Email subject:</label>
+        {{ form.subject }}
+    </div>
+    <div class="form-group">
+        {{ form.message.errors }}
+        <label for="{{ form.message.id_for_label }}">Your message:</label>
+        {{ form.message }}
+    </div>
+    <div class="form-group">
+        {{ form.sender.errors }}
+        <label for="{{ form.sender.id_for_label }}">Your email address:</label>
+        {{ form.sender }}
+    </div>
+    <div class="form-group">
+        {{ form.cc_myself.errors }}
+        <label for="{{ form.cc_myself.id_for_label }}">CC yourself?</label>
+        {{ form.cc_myself }}
+    </div>
+    <input type="submit" value="提交">
+</form>
 
 {#<table>#}
 {#    <tr><th><label for="id_subject">Subject:</label></th><td><ul class="errorlist"><li>This field is required.</li></ul><input id="id_subject" maxlength="100" name="subject" type="text" required /></td></tr>#}
@@ -50,7 +55,7 @@
 <form enctype="multipart/form-data" method="post">
     <table>
         {% csrf_token %}
-        {{ formfile.as_table }}
+        {{ formfile.as_p}}
     </table>
     <input type="submit" value="upload">
 </form>
